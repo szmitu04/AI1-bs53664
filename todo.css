@@ -1,0 +1,112 @@
+/* Ogólny wygląd strony */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  color: #a05555;
+  text-align: center;
+}
+h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+/* Styl dla listy */
+ul {
+  list-style-type: square;
+  padding-left: 0;
+  margin: 25%;
+  background-color: rgba(30, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+/* Styl dla elementów listy */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  font-size: 18px;
+  transition: 0.2s;
+  user-select: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+ul li:hover {
+  background: #8a8686;
+}
+
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Styl dla przycisku usuwania */
+.delete-button {
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-button:hover {
+  background-color: #ff1a1a;
+}
+
+/* Styl dla inputów i przycisków */
+input[type="text"], input[type="datetime-local"] {
+  width: calc(50% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#add-task-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#add-task-button:hover {
+  background-color: #45a049;
+}
+
+/* Styl dla wyróżnionego tekstu wyszukiwania */
+mark {
+  background-color: yellow;
+  color: black;
+}
+
+/* Styl formularza dodawania zadania */
+#add-task-form {
+  margin: 20px auto;
+  width: 50%;
+  background-color: rgba(30, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#myDIV {
+  margin-bottom: 10px;
+}
