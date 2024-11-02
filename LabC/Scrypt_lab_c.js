@@ -11,8 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
             navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords;
                 map.setView([latitude, longitude], 13);
+                // Dodanie markera z informacją o lokalizacji i współrzędnych
                 L.marker([latitude, longitude]).addTo(map)
-                    .bindPopup("Twoja lokalizacja").openPopup();
+                    .bindPopup(`Twoja lokalizacja:<br>Lat: ${latitude.toFixed(5)}, Lng: ${longitude.toFixed(5)}`)
+                    .openPopup();
             });
         } else {
             alert("Geolokalizacja nie jest wspierana w tej przeglądarce.");
@@ -25,12 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (Notification.permission !== "granted") {
         Notification.requestPermission();
     }
+   
 
-    // Funkcja eksportująca mapę do Canvas i dzieląca na puzzle
+    // tu robie raster i dziele na puzzle
     function downloadMap() {
+        new Notification("CZEKAJ!", {
+            body: "Generuje obraz rastrowy"
+        });
+        console.log("Rozpoczęto generowanie obrazu mapy");
         clearPuzzleBoard(); // Czyszczenie planszy przed załadowaniem nowej mapy
 
-        html2canvas(document.getElementById("map")).then(canvas => {
+        // Używamy leafletImage do generowania obrazu mapy
+        leafletImage(map, function(err, canvas) {
+            if (err) {
+                console.error("Błąd podczas generowania obrazu mapy:", err);
+                return;
+            }
+
+            //alert("generowanie rastru");
+            
+            console.log("Obraz mapy został wygenerowany");
             const rasterCanvas = document.getElementById("RasterCanvas");
             const ctx = rasterCanvas.getContext("2d");
             ctx.clearRect(0, 0, rasterCanvas.width, rasterCanvas.height);
@@ -38,9 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Podział mapy na 16 puzzli
             const pieceSize = rasterCanvas.width / 4;
-            const puzzlePieces = [];//tu idą puzzle przed mieszaniem
-            //const puzzleContainer = document.getElementById("pomieszanePuzzle");
-            //puzzleContainer.innerHTML = '';
+            const puzzlePieces = [];
 
             for (let y = 0; y < 4; y++) {
                 for (let x = 0; x < 4; x++) {
@@ -52,17 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     pieceCanvas.classList.add("puzzlePiece");
                     pieceCanvas.setAttribute("draggable", true);
                     pieceCanvas.id = `piece-${y * 4 + x}`;
-                    puzzlePieces.push(pieceCanvas); // Dodawanie puzzla do tablicy                }
+                    puzzlePieces.push(pieceCanvas);
+                }
             }
-        }
-            shuffleArray(puzzlePieces);
-// Dodawanie pomieszanych puzzli do kontenera
-            const puzzleContainer = document.getElementById("pomieszanePuzzle");
-            puzzleContainer.innerHTML = ''; // Wyczyść kontener
 
-            puzzlePieces.forEach(piece => {
-                puzzleContainer.appendChild(piece); // Dodaj pomieszane puzzle do kontenera
-            });
+            shuffleArray(puzzlePieces); // Mieszanie puzzli
+
+            const puzzleContainer = document.getElementById("pomieszanePuzzle");
+            puzzleContainer.innerHTML = ''; // Czyszczenie kontenera puzzli
+            puzzlePieces.forEach(piece => puzzleContainer.appendChild(piece));
 
             addDragAndDrop();
         });
@@ -75,13 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const puzzleBoard = document.getElementById("ukladanka");
         puzzleBoard.querySelectorAll("div").forEach(cell => cell.innerHTML = "");
     }
-           // Funkcja mieszająca elementy tablicy
+
+    // Funkcja mieszająca elementy tablicy
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1)); // Losowy indeks
-            [array[i], array[j]] = [array[j], array[i]]; // Zamień elementy
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
     }
+
     // Funkcja Drag & Drop
     function addDragAndDrop() {
         const puzzlePieces = document.querySelectorAll(".puzzlePiece");
@@ -112,21 +126,27 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkPuzzleCompletion() {
         const pieces = document.querySelectorAll("#ukladanka .puzzlePiece");
         let isCompleted = true;
-        let counter = 0;
+        let licznik = 0;
 
         pieces.forEach((piece, index) => {
             if (piece.id !== `piece-${index}`) {
+
                 isCompleted = false;
             }
-            counter = counter + 1;
-
+            
+                licznik = licznik + 1
+            
         });
 
-        if (isCompleted && counter === 16 && Notification.permission === "granted") {
+        if (isCompleted && licznik === 16 && Notification.permission === "granted") {
+            console.log("Puzzle poprawnie ułożone");
             new Notification("Gratulacje!", {
                 body: "Ułożyłeś wszystkie puzzle poprawnie!"
+                
             });
-        } else if (isCompleted && counter === 16) {
+           
+        } else if (isCompleted && licznik === 16) {
+            console.log("Puzzle poprawnie ułożone");
             alert("Gratulacje! Ułożyłeś wszystkie puzzle poprawnie!");
         }
     }
