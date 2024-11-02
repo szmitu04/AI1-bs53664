@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: bisque;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    margin: 20px;
+}
+
+.frame1 {
+    /*border: 2px solid #e28ede;*/
+    padding: 10px;
+    width: 40%;
+    box-sizing: border-box;
+    position: relative;
+}
+.frame2 {
+    /*border: 2px solid #968ee2;*/
+    padding: 10px;
+    width: 40%;
+    box-sizing: border-box;
+    position: relative;
+}
+.frame3 {
+    /*border: 2px solid #8edfe2;*/
+    padding: 10px;
+    width: 40%;
+    box-sizing: border-box;
+    position: relative;
+}
+.frame4 {
+    /*border: 2px solid #9fe28e;*/
+    padding: 10px;
+    width: 40%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#map, #RasterCanvas, #puzzleContainer, #puzzleBoard {
+    width: 100%;
+    height: 300px;
+}
+#puzzleContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.puzzlePiece {
+    margin: 5px;
+    cursor: move;
+}
+#puzzleBoard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    /*border: 2px solid #9fe28e;
+    background-color: #f9f9f9;*/
+}
+
+#puzzleBoard > div {
+    border: 1px dashed #ccc;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+#ukladanka {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #9fe28e;
+    background-color: #f9f9f9;
+}
+
+#ukladanka > div {
+    border: 1px dashed #ccc;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    min-height: 80px; 
+    min-width: 80px; 
+}
