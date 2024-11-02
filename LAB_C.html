@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<script src="Scrypt_lab_c.js" defer></script> 
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB C - Puzzle z mapy</title>
+    <link rel="stylesheet" href="style_labC.css">
+    <script src="Scrypt_lab_c.js" defer></script> 
+</head>
+<body>
+    
+    <h1>Puzzle z mapy</h1>
+    <div class="container">
+        <!-- Ramka 1: Interaktywna mapa -->
+        <div class="frame1" id="mapContainer">
+            <h2>Mapa</h2>
+            <div id="map"></div>
+            <button id="myLocationBtn">Moja lokalizacja</button>
+            <button id="downloadMapBtn">Pobierz mapę</button>
+        </div>
+
+        <!-- Ramka 2: Mapa rastrowa -->
+        <div class="frame2" id="rasterContainer">
+            <h2>Mapa rastrowa</h2>
+            <canvas id="RasterCanvas" width="300" height="300"></canvas> <!-- Ustawiono rozmiar canvasa -->
+        </div>
+
+        <!-- Ramka 3: Pomieszane puzzle -->
+        <div class="frame3" id="puzzleContainer">
+            <h2>Pomieszane puzzle</h2>
+            <div id="pomieszanePuzzle"></div> <!-- Zmieniono ID na bardziej spójne -->
+        </div>
+
+        <!-- Ramka 4: Pole do układania puzzli -->
+        <div class="frame4" id="puzzleBoard">
+            <h2>Pole do układania</h2>
+
+            <div id="ukladanka">
+                <div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div>
+            </div> <!-- Element kontenera na układankę -->
+        </div>
+    </div>
+</body>
+</html>
