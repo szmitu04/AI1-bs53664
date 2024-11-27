@@ -114,7 +114,7 @@ const WeatherApp = class {
     }
 };
 
-document.weatherApp = new WeatherApp("ed9e7eb4f289f022801f063dfad6d978", "#weather-results-container");
+document.weatherApp = new WeatherApp("jakiś alarm sie włączył jak udostepnilem klucz api haha", "#weather-results-container");
 document.querySelector("#checkButton").addEventListener("click", function () {
     const query = document.querySelector("#locationInput").value;
     document.weatherApp.getWeather(query);
