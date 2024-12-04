@@ -1,0 +1,131 @@
+/* Ogólne ustawienia dla całej strony */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('tlo.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+/* Nagłówki */
+h1, h2, h3 {
+    text-align: center;
+    background-color: rgba(30, 0, 40, 0.6); /* Ciemne półprzezroczyste tło */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Biała półprzezroczysta ramka */
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    padding: 15px; /* Wewnętrzny odstęp, by elementy listy nie przylegały do ramki */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Cień dla efektu uniesienia */
+    color: #fff; /* Biały tekst dla lepszego kontrastu */
+}
+header{
+	border: 2px solid rgba(255, 255, 255, 0.4); /* Biała półprzezroczysta ramka */
+    border-radius: 10px; /* Zaokrąglenie rogów */
+	
+	background-color: rgba(70, 0, 40, 0.6); /* Ciemne półprzezroczyste tło */
+	
+} 
+/* Stopka */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    
+    width: 100%;
+    bottom: 0;
+}
+/* Stylowanie dla kontenera paragrafu i obrazka */
+.content {
+    display: flex;
+    align-items: center; /* Wyrównanie obrazka i tekstu do środka w pionie */
+    margin: 20px 0; /* Dodanie odstępu między blokami */
+    padding: 15px;
+    /*background-color: #e0e0e0; /* Jasne tło dla lepszej widoczności */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Cień dla estetyki */
+}
+
+/* Styl dla obrazów */
+.content img {
+    max-width: 150px; /* Ustalanie maksymalnej szerokości obrazka */
+    margin-right: 20px; /* Odstęp między obrazkiem a tekstem */
+    border-radius: 5px; /* Zaokrąglenie rogów obrazka */
+}
+
+/* Styl dla paragrafów */
+.content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* Responsywność - dla małych ekranów obrazek będzie nad tekstem */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Ustawienie obrazka nad tekstem */
+        text-align: center;
+    }
+    .content img {
+        margin: 0 0 15px 0; /* Odstęp między obrazkiem a paragrafem, gdy obrazek jest na górze */
+    }
+}
+/* Lista */
+ol {
+    list-style-type: square;
+    padding-left: 20px;
+    margin: 20px;
+    background-color: rgba(30, 0, 0, 0.6); /* Ciemne półprzezroczyste tło */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Biała półprzezroczysta ramka */
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    padding: 15px; /* Wewnętrzny odstęp, by elementy listy nie przylegały do ramki */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Cień dla efektu uniesienia */
+    color: #fff; /* Biały tekst dla lepszego kontrastu */
+}
+
+/* Styl dla elementów listy */
+ol li {
+    margin-bottom: 10px; /* Odstęp między elementami listy */
+}
+
+
+/* Akapity */
+p {
+    margin: 20px;
+    line-height: 1.6;
+    font-size: 1.2em;
+	text-align: center;
+    color: #fff;
+    padding: 15px; /* Dodanie odstępu wewnętrznego */
+    background-color: rgba(0, 0, 0, 0.6); /* Ciemne półprzezroczyste tło */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Biała, półprzezroczysta ramka */
+    border-radius: 10px; /* Zaokrąglenie rogów ramki */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Lekki cień dla lepszego efektu */
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    
+    h1, h2, h3 {
+        font-size: 2.0em;
+    }
+    p {
+        font-size: 1em;
+		text-align: left;
+		border-radius: 5px;
+
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 1.2em;
+    }
+    p {
+        font-size: 0.9em;
+
+    }
+    footer {
+        font-size: 0.8em;
+    }
+}
