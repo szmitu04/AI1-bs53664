@@ -1,0 +1,112 @@
+/* Ogólne ustawienia dla całej strony */
+body {
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    padding: 0;
+    
+    background: url('tlo2.jpg') no-repeat center center fixed;
+    color: #333;
+}
+
+/* Nagłówki */
+h1 {
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #555;
+    margin: 20px 0;
+}
+
+h3 {
+    color: #4CAF50;
+}
+
+/* Stopka */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Lista */
+ul {
+    list-style-type: circle;
+    padding-left: 40px;
+}
+header {
+	text-align: center;
+	
+}
+/* Akapity */
+p {
+    margin: 20px 30px;
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+/* Stylowanie dla kontenera paragrafu i obrazka */
+.content {
+    display: flex;
+    align-items: center; /* Wyrównanie obrazka i tekstu do środka w pionie */
+    margin: 20px 0; /* Dodanie odstępu między blokami */
+    padding: 15px;
+    background-color: #e0e0e0; /* Jasne tło dla lepszej widoczności */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Cień dla estetyki */
+}
+
+/* Styl dla obrazów */
+.content img {
+    max-width: 150px; /* Ustalanie maksymalnej szerokości obrazka */
+    margin-right: 20px; /* Odstęp między obrazkiem a tekstem */
+    border-radius: 5px; /* Zaokrąglenie rogów obrazka */
+}
+
+/* Styl dla paragrafów */
+.content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Responsywność - dla małych ekranów obrazek będzie nad tekstem */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Ustawienie obrazka nad tekstem */
+        text-align: center;
+    }
+    .content img {
+        margin: 0 0 15px 0; /* Odstęp między obrazkiem a paragrafem, gdy obrazek jest na górze */
+    }
+}
+/* Responsywność */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9em;
+    }
+    h1 {
+        text-align: center;
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+        padding: 10px;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+    footer {
+        font-size: 0.8em;
+    }
+}
